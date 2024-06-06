@@ -88,50 +88,58 @@ $cantidad = 1000;
 
 
 for( $i = 0; $i < $cantidad; $i++){
-    $elementos[]=rand(1,100);
+    $elementos[$i]=rand(1,100);
 }
 
 print_r($elementos);
 
 echo "-----------------------------------------------------"."\n";
 
-*/
 
+*/
 //7-Del array anterior obtener el promedio de todos los valores, el máximo y el mínimo (Sin utilizar los métodos).
 
-$elementos=array();
+$elementos = array();
 $cantidad = 1000;
 
 
-for( $i = 0; $i < $cantidad; $i++){
-    $elementos[]=rand(1,100);
+for ($i = 0; $i < $cantidad; $i++) {
+    $elementos[$i] = rand(1, 100);
 }
 
 print_r($elementos);
 
 $suma = 0;
-$maximo = $elementos[0];
-$minimo = $elementos[0];
 
 for ($i = 0; $i < $cantidad; $i++) {
     $suma += $elementos[$i];
-    
+}
+
+$promedio = $suma / $cantidad;
+
+
+$maximo = $elementos[0];
+
+for ($i = 1; $i < $cantidad; $i++) {
     if ($elementos[$i] > $maximo) {
         $maximo = $elementos[$i];
     }
-    
+}
+
+
+$minimo = $elementos[0];
+
+for ($i = 1; $i < $cantidad; $i++) {
     if ($elementos[$i] < $minimo) {
         $minimo = $elementos[$i];
     }
 }
 
-$promedio = $suma / $cantidad;
+
+
 
 echo "El promedio de los valores es: " . $promedio . "\n";
 echo "El valor máximo es: " . $maximo . "\n";
 echo "El valor mínimo es: " . $minimo . "\n";
 
-echo "-----------------------------------------------------"."\n";
-
-
-?>
+echo "-----------------------------------------------------" . "\n";
